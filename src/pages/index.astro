@@ -3,132 +3,245 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/config/site";
 import Hero from "@/components/widgets/Hero.astro";
 import Features from "@/components/widgets/Features.astro";
-import devImg from "@/assets/images/dev_balanced.png";
-import openSourceImg from "@/assets/images/open-source.png";
+import ServiceList from "@/components/widgets/ServiceList.astro";
+import Values from "@/components/widgets/Values.astro";
 import Content2 from "@/components/widgets/Content2.astro";
+import devImg from "@/assets/images/dev_balanced.png";
+
 const metadata = {
-  title: `${siteConfig.name} — The next step for your project`,
+  title: "hoefener.media — Web-Engineering. Sicher. Skalierbar. Schön.",
   description:
-    "A modern and professional template for your web projects with Astro and Tailwind CSS. Boost your development with a solid foundation.",
+    "Webdesign & Web-Engineering aus dem Fichtelgebirge. 10 Jahre Erfahrung, DevOps-Expertise und ein Auge für schönes Design.",
   ignoreTitleTemplate: true,
 };
 ---
 
 <BaseLayout {metadata}>
+  <!-- Hero -->
   <Hero
-    title={`Starter Template for <br class="hidden md:block" /> <span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Web Developers</span>`}
-    tagline="Astro v5 + Tailwind v4"
-    description={`${siteConfig.description}`}
+    title={`Web-Engineering.<br class="hidden md:block" /><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Sicher. Skalierbar. Schön.</span>`}
+    tagline="hoefener.media"
+    description="Ich verbinde 10 Jahre Webdesign-Erfahrung mit meiner Expertise als Head of DevOps. Das Ergebnis: schnelle Webpräsenzen, die Ihre Kunden begeistern."
     actions={[
       {
-        text: "Get Started",
-        href: "https://github.com/devgelo-labs/astro-starter-pro",
+        text: "Leistungen entdecken",
+        href: "/#leistungen",
         variant: "primary",
-        icon: "lucide:github",
+        icon: "lucide:arrow-down",
       },
       {
-        text: "Our Services",
-        href: "/services",
+        text: "Kontakt aufnehmen",
+        href: "/contact",
         variant: "secondary",
-        icon: "lucide:arrow-right",
-        ariaLabel: "Learn more about our services",
+        icon: "lucide:mail",
+        ariaLabel: "Jetzt Kontakt aufnehmen",
       },
     ]}
   />
+
+  <!-- Stärken / Features -->
   <Features
-    tagline="Features"
-    title="What's Included"
-    subtitle="A selection of tools and configurations to streamline your workflow."
+    id="staerken"
+    tagline="Meine Stärken"
+    title="Design trifft Ingenieurskunst"
+    subtitle="Als Head of DevOps denke ich Webdesign weiter als andere — von der ersten Skizze bis zum sicheren, wartbaren Betrieb."
     features={[
       {
-        title: "Optimized SEO",
+        title: "Responsives Design",
         description:
-          "Base configuration for Meta tags, Open Graph, and Sitemap generation.",
-        icon: "lucide:scan-search",
+          "Perfekte Darstellung auf allen Geräten — von Smartphone bis Widescreen-Monitor. Mobile First ist bei mir kein Buzzword, sondern Standard.",
+        icon: "lucide:monitor-smartphone",
         iconClass: "bg-blue-500/10 text-blue-400",
       },
       {
-        title: "High Performance",
-        description: "Lightweight structure for fast load times.",
+        title: "Performance & Ladezeit",
+        description:
+          "Optimierte Assets, schnelle Server-Infrastruktur und moderne Frameworks sorgen für Ladezeiten unter einer Sekunde.",
         icon: "lucide:zap",
+        iconClass: "bg-yellow-500/10 text-yellow-400",
+      },
+      {
+        title: "Sicherheit by Design",
+        description:
+          "DevOps-Expertise bedeutet: SSL/TLS, sichere Deployments, regelmäßige Updates und Schutz gegen die OWASP Top 10 — von Anfang an eingebaut.",
+        icon: "lucide:shield-check",
+        iconClass: "bg-green-500/10 text-green-400",
+      },
+      {
+        title: "SEO-Optimierung",
+        description:
+          "Strukturierte Daten, sauberes HTML, schnelle Ladezeiten und sprechende URLs — damit Sie bei Google gefunden werden.",
+        icon: "lucide:search",
         iconClass: "bg-purple-500/10 text-purple-400",
       },
       {
-        title: "Tailwind v4",
+        title: "Skalierbarkeit",
         description:
-          "Integrated configuration with the latest version of Tailwind CSS.",
-        icon: "lucide:palette",
+          "Technologien, die mit Ihrem Unternehmen wachsen. Egal ob kleines Unternehmen heute oder großes Wachstum morgen.",
+        icon: "lucide:trending-up",
         iconClass: "bg-pink-500/10 text-pink-400",
+      },
+      {
+        title: "10+ Jahre Erfahrung",
+        description:
+          "Seit über einem Jahrzehnt baue ich Websites mit WordPress und modernen Web-Technologien — für Kunden aus der Region und darüber hinaus.",
+        icon: "lucide:calendar-check",
+        iconClass: "bg-orange-500/10 text-orange-400",
       },
     ]}
   />
+
+  <!-- Leistungen -->
+  <ServiceList
+    id="leistungen"
+    tagline="Leistungen"
+    title="Was ich für Sie umsetze"
+    subtitle="Von der ersten Idee bis zum laufenden Betrieb — alles aus einer Hand."
+    services={[
+      {
+        title: "Webdesign & Entwicklung",
+        description:
+          "Individuelle Websites, die Ihre Marke widerspiegeln. Ich designe und entwickle moderne, schnelle und barrierefreie Webpräsenzen — maßgeschneidert für Ihr Unternehmen.",
+        icon: "lucide:layout-template",
+      },
+      {
+        title: "WordPress & CMS",
+        description:
+          "Professionelle WordPress-Websites, die Sie selbst verwalten können. Ich richte alles ein, erkläre alles verständlich und bin bei Fragen weiterhin für Sie da.",
+        icon: "lucide:pen-tool",
+      },
+      {
+        title: "Hosting & Betrieb",
+        description:
+          "Sicheres Hosting, automatische Backups, SSL-Zertifikate und regelmäßige Updates. Mit DevOps-Expertise überwache ich den Betrieb Ihrer Website professionell.",
+        icon: "lucide:server",
+      },
+    ]}
+  />
+
+  <!-- Über mich / Mein Ansatz -->
   <Content2
+    id="ueber-mich"
     items={[
       {
-        title: "Responsive Design",
+        title: "Beruflich verwurzelt in DevOps",
         description:
-          "Base configuration for Meta tags, Open Graph, and Sitemap generation.",
-        icon: "lucide:scan-search",
+          "Als Head of DevOps kenne ich die Strukturen hinter skalierbaren Systemen — dieses Wissen fließt direkt in jede Website ein, die ich entwickle.",
+        icon: "lucide:code-2",
         iconClass: "bg-blue-500/10 text-blue-400",
       },
       {
-        title: "High Performance",
-        description: "Lightweight structure for fast load times.",
-        icon: "lucide:zap",
-        iconClass: "bg-purple-500/10 text-purple-400",
+        title: "Regional verbunden",
+        description:
+          "Ich bin im Fichtelgebirge/Franken verwurzelt und freue mich besonders auf Projekte aus der Region — persönlicher Kontakt ist mir wichtig.",
+        icon: "lucide:map-pin",
+        iconClass: "bg-green-500/10 text-green-400",
       },
       {
-        title: "Tailwind v4",
+        title: "Transparent & verlässlich",
         description:
-          "Integrated configuration with the latest version of Tailwind CSS.",
-        icon: "lucide:palette",
-        iconClass: "bg-pink-500/10 text-pink-400",
+          "Klare Kommunikation, realistische Zeitpläne und Preise ohne versteckte Kosten. Sie wissen immer, woran wir gerade arbeiten.",
+        icon: "lucide:handshake",
+        iconClass: "bg-purple-500/10 text-purple-400",
       },
     ]}
     image={devImg}
-    imageAlt="Development"
+    imageAlt="Web-Entwicklung mit Sorgfalt"
   >
     <Fragment>
       <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Development
+        Webdesign mit Tiefe
       </h3>
-      We provide a solid foundation to start your projects with best practices.
+      Nebenberuflich, aber mit vollem Einsatz: Ich bringe die Qualität und das Denken
+      eines erfahrenen Software-Ingenieurs in jedes Webprojekt ein — egal wie groß
+      oder klein.
     </Fragment>
   </Content2>
-  <Content2
+
+  <!-- Portfolio / Referenzen -->
+  <Values
+    id="portfolio"
+    tagline="Portfolio"
+    title="Ausgewählte Referenzen"
+    subtitle="Einige Projekte, die ich mit Leidenschaft umgesetzt habe. Weitere Details auf Anfrage."
+    columns={3}
     items={[
       {
-        title: "Open Source",
+        title: "Handwerksbetrieb Website",
         description:
-          "Developed under the MIT license, free for personal and commercial use.",
-        icon: "lucide:github",
-        iconClass: "bg-indigo-500/10 text-indigo-400",
+          "Moderne WordPress-Website für einen regionalen Handwerksbetrieb — mit Online-Terminbuchung, mobilem Layout und lokalem SEO.",
+        icon: "lucide:hammer",
       },
       {
-        title: "Community Driven",
+        title: "Dienstleister Landing Page",
         description:
-          "Built with the feedback and contributions of the developer community.",
+          "Schnelle, conversion-optimierte Landing Page für einen Dienstleister aus Franken. Gebaut mit Astro, gehostet auf Vercel.",
+        icon: "lucide:briefcase",
+      },
+      {
+        title: "Vereins-Website",
+        description:
+          "Pflegeleichte WordPress-Site für einen lokalen Verein — inkl. Veranstaltungskalender, Mitgliederbereich und DSGVO-konformen Formularen.",
         icon: "lucide:users",
-        iconClass: "bg-orange-500/10 text-orange-400",
-      },
-      {
-        title: "Regular Updates",
-        description:
-          "Continuously improved with the latest technologies and best practices.",
-        icon: "lucide:refresh-cw",
-        iconClass: "bg-teal-500/10 text-teal-400",
       },
     ]}
-    image={openSourceImg}
-    imageAlt="Community and Open Source"
-    isReversed={true}
-  >
-    <Fragment>
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Open Source & Community
-      </h3>
-      Join the revolution of modern web development. This project is open for everyone
-      to use, learn from, and contribute to.
-    </Fragment>
-  </Content2>
+  />
+
+  <!-- Kontakt CTA -->
+  <Features
+    id="kontakt"
+    isDark={true}
+    tagline="Jetzt starten"
+    title="Ihr Projekt verdient das Beste"
+    subtitle="Sie haben eine Idee oder möchten Ihre bestehende Website verbessern? Ich freue mich auf Ihre Nachricht — unverbindlich und unkompliziert."
+    features={[
+      {
+        title: "Kostenloses Erstgespräch",
+        description:
+          "In einem kurzen Telefonat oder per Video-Call besprechen wir Ihr Vorhaben und ich gebe Ihnen eine erste Einschätzung.",
+        icon: "lucide:phone",
+        iconClass: "bg-blue-500/10 text-blue-400",
+      },
+      {
+        title: "Angebot innerhalb von 48h",
+        description:
+          "Nach unserem Gespräch erhalten Sie ein detailliertes Angebot mit klarem Leistungsumfang und transparenter Preisgestaltung.",
+        icon: "lucide:file-text",
+        iconClass: "bg-purple-500/10 text-purple-400",
+      },
+      {
+        title: "Persönliche Betreuung",
+        description:
+          "Kein Callcenter, kein Ticketsystem. Sie haben immer einen direkten Ansprechpartner — von Anfang bis Ende.",
+        icon: "lucide:user-check",
+        iconClass: "bg-green-500/10 text-green-400",
+      },
+    ]}
+  />
+
+  <!-- CTA Button -->
+  <div class="dark relative not-prose">
+    <div
+      class="relative mx-auto max-w-7xl px-4 md:px-6 py-2 md:py-4 text-center pb-16 md:pb-20"
+    >
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+            d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+        >
+        Nachricht schreiben
+      </a>
+    </div>
+  </div>
 </BaseLayout>

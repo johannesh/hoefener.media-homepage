@@ -1,26 +1,21 @@
 import ogImage from "@/assets/og-image.png";
 
 export const siteConfig = {
-  name: "Astro Starter Pro",
+  name: "hoefener.media",
   description:
-    "Starter template optimized for SEO and performance. A solid foundation to start your projects with best practices.",
-  url: "https://astrostarterpro.com",
-  lang: "en",
-  locale: "en_US",
-  author: "Devgelo",
-  twitter: "@Devgelo",
+    "Webdesign & Web-Engineering aus dem Fichtelgebirge. Schnelle, sichere und skalierbare Webpräsenzen, die Ihre Kunden begeistern.",
+  url: "https://hoefener.media",
+  lang: "de",
+  locale: "de_DE",
+  author: "hoefener.media",
   ogImage: ogImage,
   socialLinks: {
-    twitter: "https://twitter.com",
-    github: "https://github.com/devgelo-labs/astro-starter-pro",
-    discord: "https://discord.com",
+    github: "https://github.com/johannesh/hoefener.media-homepage",
   },
   navLinks: [
-    { text: "Home", href: "/" },
-    { text: "About", href: "/about" },
-    { text: "Services", href: "/services" },
-    { text: "Blog", href: "/blog" },
-    { text: "Contact", href: "/contact" },
-    { text: "Widgets", href: "/widgets" },
+    { text: "Start", href: "/" },
+    { text: "Leistungen", href: "/#leistungen" },
+    { text: "Portfolio", href: "/#portfolio" },
+    { text: "Kontakt", href: "/contact" },
   ],
 };
