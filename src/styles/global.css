@@ -63,3 +63,24 @@
 :root[data-astro-transition] .reveal {
   transition: none !important;
 }
+
+/* Typewriter cursor blink */
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  animation: blink 0.75s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor {
+    animation: none;
+  }
+}
