@@ -248,8 +248,8 @@ const metadata = {
 
 <script>
   const words = [
-    "Design",
     "Engineering",
+    "Design",
     "Apps",
     "Sites",
     "Development",
@@ -258,9 +258,9 @@ const metadata = {
   const DELETING_SPEED = 50;
   const PAUSE_DURATION = 3000;
 
-  let currentWordIndex = 0; // "Design" is shown first (matches initial HTML)
+  let currentWordIndex = 1; // "Design" is shown first (matches initial HTML)
   let isDeleting = false;
-  let charIndex = words[0].length;
+  let charIndex = words[1].length;
   let typewriterTimer: number | null = null;
 
   function type(): void {
