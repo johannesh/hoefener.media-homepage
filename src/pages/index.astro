@@ -9,9 +9,9 @@ import Content2 from "@/components/widgets/Content2.astro";
 import devImg from "@/assets/images/dev_balanced.png";
 
 const metadata = {
-  title: "hoefener.media — Web-Engineering. Sicher. Skalierbar. Schön.",
+  title: "hoefener.media E.K. — Web-Engineering. Schön. Schnell. Sicher.",
   description:
-    "Webdesign & Web-Engineering aus dem Fichtelgebirge. 10 Jahre Erfahrung, DevOps-Expertise und ein Auge für schönes Design.",
+    "Webdesign & Software-Engineering aus dem Fichtelgebirge. Über 10 Jahre Erfahrung, DevOps-Expertise und ein Auge für schönes Design.",
   ignoreTitleTemplate: true,
 };
 ---
@@ -19,9 +19,9 @@ const metadata = {
 <BaseLayout {metadata}>
   <!-- Hero -->
   <Hero
-    title={`Web-<span id="typewriter-text" aria-live="polite">Engineering</span><span class="typewriter-cursor" aria-hidden="true">|</span><br class="hidden md:block" /><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Sicher. Skalierbar. Schön.</span>`}
-    tagline="hoefener.media"
-    description="Ich verbinde 10 Jahre Webdesign-Erfahrung mit meiner Expertise als Head of DevOps. Das Ergebnis: schnelle Webpräsenzen, die Ihre Kunden begeistern."
+    title={`Web-<span id="typewriter-text" aria-live="polite">Design</span><span class="typewriter-cursor" aria-hidden="true">|</span><br/><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Schön. Schnell. Sicher.</span>`}
+    tagline="Johannes Höfener"
+    description="Ich verbinde über 10 Jahre Webdesign-Erfahrung mit meiner Expertise als Head of DevOps. Das Ergebnis: schnelle Webpräsenzen, die Ihre Kunden begeistern."
     actions={[
       {
         text: "Leistungen entdecken",
@@ -44,12 +44,12 @@ const metadata = {
     id="staerken"
     tagline="Meine Stärken"
     title="Design trifft Ingenieurskunst"
-    subtitle="Als Head of DevOps denke ich Webdesign weiter als andere — von der ersten Skizze bis zum sicheren, wartbaren Betrieb."
+    subtitle="Als Head of DevOps denke ich Webdesign ganzheitlich — von der ersten Skizze bis zum sicheren, wartbaren Betrieb über Jahrzehnte."
     features={[
       {
         title: "Responsives Design",
         description:
-          "Perfekte Darstellung auf allen Geräten — von Smartphone bis Widescreen-Monitor. Mobile First ist bei mir kein Buzzword, sondern Standard.",
+          "Perfekte Darstellung auf allen Geräten — von Smartphone bis Widescreen-Monitor. Mobile First ist bei mir kein Buzzword, sondern Standard. Wie für die Mehrheit der Besucher.",
         icon: "lucide:monitor-smartphone",
         iconClass: "bg-blue-500/10 text-blue-400",
       },
@@ -84,7 +84,7 @@ const metadata = {
       {
         title: "10+ Jahre Erfahrung",
         description:
-          "Seit über einem Jahrzehnt baue ich Websites mit WordPress und modernen Web-Technologien — für Kunden aus der Region und darüber hinaus.",
+          "Seit über einem Jahrzehnt baue ich Websites mit WordPress und anderen CMS oder als Static Page mit Hugo, Astro uvm.",
         icon: "lucide:calendar-check",
         iconClass: "bg-orange-500/10 text-orange-400",
       },
@@ -212,7 +212,7 @@ const metadata = {
       {
         title: "Persönliche Betreuung",
         description:
-          "Kein Callcenter, kein Ticketsystem. Sie haben immer einen direkten Ansprechpartner — von Anfang bis Ende.",
+          "Kein Callcenter, kein Ticketsystem. Sie haben immer einen direkten Ansprechpartner.",
         icon: "lucide:user-check",
         iconClass: "bg-green-500/10 text-green-400",
       },
@@ -248,16 +248,17 @@ const metadata = {
 
 <script>
   const words = [
-    "Design",
     "Engineering",
+    "Design",
     "Apps",
+    "Sites",
     "Development",
   ];
   const TYPING_SPEED = 80;
   const DELETING_SPEED = 50;
   const PAUSE_DURATION = 3000;
 
-  let currentWordIndex = 1; // "Web-Engineering" is shown first
+  let currentWordIndex = 1; // "Design" is shown first (matches initial HTML)
   let isDeleting = false;
   let charIndex = words[1].length;
   let typewriterTimer: number | null = null;
