@@ -18,4 +18,8 @@ export const siteConfig = {
     { text: "Portfolio", href: "/#portfolio" },
     { text: "Kontakt", href: "/contact" },
   ],
+  legalLinks: [
+    { text: "Impressum", href: "/impressum" },
+    { text: "Datenschutz", href: "/datenschutz" },
+  ],
 };

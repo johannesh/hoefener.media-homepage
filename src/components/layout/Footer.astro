@@ -12,6 +12,16 @@ import { siteConfig } from "@/config/site";
         </p>
       </div>
       <div class="flex items-center gap-6">
+        {
+          siteConfig.legalLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-muted-foreground transition-colors hover:text-primary"
+            >
+              {link.text}
+            </a>
+          ))
+        }
         <a
           href={siteConfig.socialLinks.github}
           target="_blank"
