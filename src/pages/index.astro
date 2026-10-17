@@ -1,17 +1,16 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { siteConfig } from "@/config/site";
+import Schema from "@/components/seo/Schema.astro";
 import Hero from "@/components/widgets/Hero.astro";
 import Features from "@/components/widgets/Features.astro";
 import ServiceList from "@/components/widgets/ServiceList.astro";
 import Values from "@/components/widgets/Values.astro";
 import Content2 from "@/components/widgets/Content2.astro";
-import Github from "@/components/widgets/Github.astro";
-import Integrations from "@/components/widgets/Integrations.astro";
 import devImg from "@/assets/images/dev_balanced.png";
 
 const metadata = {
-  title: "hoefener.media E.K. — Web-Engineering. Schön. Schnell. Sicher.",
+  title:
+    "hoefener.media e.K. — Webdesign & Web-Engineering. Schön. Schnell. Sicher.",
   description:
     "Webdesign & Software-Engineering aus dem Fichtelgebirge. Über 10 Jahre Erfahrung, DevOps-Expertise und ein Auge für schönes Design.",
   ignoreTitleTemplate: true,
@@ -19,9 +18,11 @@ const metadata = {
 ---
 
 <BaseLayout {metadata}>
+  <Schema type="ProfessionalService" slot="head" />
+
   <!-- Hero -->
   <Hero
-    title={`Web-<span id="typewriter-text" aria-live="polite">Design</span><span class="typewriter-cursor" aria-hidden="true">|</span><br/><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Schön. Schnell. Sicher.</span>`}
+    title={`<span class="whitespace-nowrap">Web-<span id="typewriter-text" aria-live="polite">Design</span><span class="typewriter-cursor" aria-hidden="true">|</span></span><br/><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Schön. Schnell. Sicher.</span>`}
     tagline="Johannes Höfener"
     description="Ich verbinde über 10 Jahre Webdesign-Erfahrung mit meiner Expertise als Head of DevOps. Das Ergebnis: schnelle Webpräsenzen, die Ihre Kunden begeistern."
     actions={[
@@ -46,12 +47,12 @@ const metadata = {
     id="staerken"
     tagline="Meine Stärken"
     title="Design trifft Ingenieurskunst"
-    subtitle="Als Head of DevOps denke ich Webdesign ganzheitlich — von der ersten Skizze bis zum sicheren, wartbaren Betrieb über Jahrzehnte."
+    subtitle="Ich denke Webdesign ganzheitlich — von der ersten Skizze bis zum sicheren, wartbaren Betrieb über viele Jahre."
     features={[
       {
         title: "Responsives Design",
         description:
-          "Perfekte Darstellung auf allen Geräten — von Smartphone bis Widescreen-Monitor. Mobile First ist bei mir kein Buzzword, sondern Standard. Wie für die Mehrheit der Besucher.",
+          "Perfekte Darstellung auf allen Geräten — von Smartphone bis Widescreen-Monitor. Mobile First ist bei mir kein Buzzword, sondern Standard — denn die meisten Ihrer Besucher kommen per Smartphone.",
         icon: "lucide:monitor-smartphone",
         iconClass: "bg-blue-500/10 text-blue-400",
       },
@@ -65,7 +66,7 @@ const metadata = {
       {
         title: "Sicherheit by Design",
         description:
-          "DevOps-Expertise bedeutet: SSL/TLS, sichere Deployments, regelmäßige Updates und Schutz gegen die OWASP Top 10 — von Anfang an eingebaut.",
+          "Das bedeutet: SSL/TLS, sichere Deployments, regelmäßige Updates und Schutz gegen die OWASP Top 10 — von Anfang an eingebaut.",
         icon: "lucide:shield-check",
         iconClass: "bg-green-500/10 text-green-400",
       },
@@ -84,10 +85,10 @@ const metadata = {
         iconClass: "bg-pink-500/10 text-pink-400",
       },
       {
-        title: "10+ Jahre Erfahrung",
+        title: "Die passende Technik",
         description:
-          "Seit über einem Jahrzehnt baue ich Websites mit WordPress und anderen CMS oder als Static Page mit Hugo, Astro uvm.",
-        icon: "lucide:calendar-check",
+          "WordPress und andere CMS, wenn Sie selbst pflegen möchten — statische Seiten mit Astro oder Hugo, wenn es maximal schnell und wartungsarm sein soll.",
+        icon: "lucide:layers",
         iconClass: "bg-orange-500/10 text-orange-400",
       },
     ]}
@@ -115,7 +116,7 @@ const metadata = {
       {
         title: "Hosting & Betrieb",
         description:
-          "Sicheres Hosting, automatische Backups, SSL-Zertifikate und regelmäßige Updates. Mit DevOps-Expertise überwache ich den Betrieb Ihrer Website professionell.",
+          "Sicheres Hosting, automatische Backups, SSL-Zertifikate und regelmäßige Updates. Ich überwache den Betrieb Ihrer Website professionell — mit denselben Werkzeugen wie im Enterprise-Umfeld.",
         icon: "lucide:server",
       },
     ]}
@@ -128,7 +129,7 @@ const metadata = {
       {
         title: "Beruflich verwurzelt in DevOps",
         description:
-          "Als Head of DevOps kenne ich die Strukturen hinter skalierbaren Systemen — dieses Wissen fließt direkt in jede Website ein, die ich entwickle.",
+          "Im Hauptberuf verantworte ich als Head of DevOps skalierbare Systeme — dieses Wissen fließt direkt in jede Website ein, die ich entwickle.",
         icon: "lucide:code-2",
         iconClass: "bg-blue-500/10 text-blue-400",
       },
@@ -249,13 +250,7 @@ const metadata = {
 </BaseLayout>
 
 <script>
-  const words = [
-    "Engineering",
-    "Design",
-    "Apps",
-    "Sites",
-    "Development",
-  ];
+  const words = ["Engineering", "Design", "Entwicklung", "Apps", "Hosting"];
   const TYPING_SPEED = 80;
   const DELETING_SPEED = 50;
   const PAUSE_DURATION = 3000;

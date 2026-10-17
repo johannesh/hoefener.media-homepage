@@ -46,19 +46,23 @@
   }
 }
 
-/* Animations - Reveal on Scroll */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-  will-change: opacity, transform;
-}
+/* Animations - Reveal on Scroll
+   Only hide content once JS has run (html.js), so it stays visible without JS
+   and for users who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+  .js .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Prevent double-bounce conflicts when Astro View Transitions is actively animating */

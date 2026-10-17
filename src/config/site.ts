@@ -7,7 +7,17 @@ export const siteConfig = {
   url: "https://hoefener.media",
   lang: "de",
   locale: "de_DE",
-  author: "hoefener.media",
+  legalName: "hoefener.media e.K.",
+  author: "Johannes Höfener",
+  email: "johannes@hoefener.media",
+  address: {
+    street: "Kirchsteig 6",
+    postalCode: "95697",
+    city: "Nagel",
+    region: "Bayern",
+    country: "DE",
+  },
+  areaServed: ["Fichtelgebirge", "Oberfranken", "Oberpfalz"],
   ogImage: ogImage,
   socialLinks: {
     github: "https://github.com/johannesh/hoefener.media-homepage",

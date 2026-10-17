@@ -2,8 +2,8 @@
 import { siteConfig } from "@/config/site";
 
 interface Props {
-  type: "WebSite" | "BlogPosting" | "BreadcrumbList";
-  data: {
+  type: "WebSite" | "ProfessionalService" | "BlogPosting" | "BreadcrumbList";
+  data?: {
     title?: string;
     description?: string;
     image?: string;
@@ -13,7 +13,8 @@ interface Props {
   };
 }
 
-const { type, data } = Astro.props;
+const { type, data = {} } = Astro.props;
+const businessId = `${siteConfig.url}/#business`;
 
 let schema = {};
 
@@ -24,10 +25,47 @@ if (type === "WebSite") {
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
-    author: {
+    inLanguage: siteConfig.lang,
+    publisher: { "@id": businessId },
+  };
+} else if (type === "ProfessionalService") {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": businessId,
+    name: siteConfig.name,
+    legalName: siteConfig.legalName,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    email: siteConfig.email,
+    image: new URL(siteConfig.ogImage.src, siteConfig.url).toString(),
+    logo: new URL("/favicon.svg", siteConfig.url).toString(),
+    founder: {
       "@type": "Person",
       name: siteConfig.author,
+      jobTitle: "Webdesigner & Software-Engineer",
     },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      postalCode: siteConfig.address.postalCode,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.region,
+      addressCountry: siteConfig.address.country,
+    },
+    areaServed: siteConfig.areaServed.map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
+    knowsAbout: [
+      "Webdesign",
+      "Webentwicklung",
+      "WordPress",
+      "Astro",
+      "Hosting",
+      "DevOps",
+      "SEO",
+    ],
     sameAs: [siteConfig.socialLinks.github],
   };
 } else if (type === "BlogPosting") {
