@@ -33,7 +33,7 @@ const metadata = {
 
   <!-- Hero -->
   <Hero
-    title={`<span class="whitespace-nowrap">Web-<span id="typewriter-text" aria-live="polite">Design</span><span class="typewriter-cursor" aria-hidden="true">|</span></span><br/><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Schön. Schnell. Sicher.</span>`}
+    title={`<span class="sr-only">Webdesign und Web-Engineering: Schön. Schnell. Sicher.</span><span aria-hidden="true"><span class="whitespace-nowrap">Web-<span id="typewriter-text">Design</span><span class="typewriter-cursor">|</span></span><br/><span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Schön. Schnell. Sicher.</span></span>`}
     tagline="Gespannt auf Ihre Projekte"
     description="Ich verbinde über 10 Jahre Webdesign-Erfahrung mit meiner Expertise als Head of DevOps. Das Ergebnis: schnelle Webpräsenzen, die Ihre Kunden begeistern."
     actions={[
@@ -75,7 +75,7 @@ const metadata = {
       {
         title: "Hosting & Betrieb",
         description:
-          "Sicheres Hosting, automatische Backups, SSL-Zertifikate und regelmäßige Updates. Ich überwache den Betrieb Ihrer Website professionell — mit denselben Werkzeugen wie im Enterprise-Umfeld.",
+          "Von RaspberryPi bis Hyperscaler: Sicheres Hosting, automatische Backups, Monitoring und automatisierte Updates. Ich überwache den Betrieb Ihrer Website professionell — mit Audit-fähigen Werkzeugen aus dem Enterprise-Umfeld.",
         icon: "lucide:server",
       },
     ]}
@@ -124,7 +124,7 @@ const metadata = {
             href={`https://pagespeed.web.dev/analysis?url=${encodeURIComponent(siteConfig.url)}&form_factor=mobile`}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-primary hover:underline">selbst prüfen ↗</a
+            class="text-primary underline hover:no-underline">selbst prüfen ↗</a
           >
         </p>
       </div>
@@ -135,7 +135,7 @@ const metadata = {
               <dt class="whitespace-nowrap text-xs text-muted-foreground">
                 {score.label}
               </dt>
-              <dd class="flex h-14 w-14 items-center justify-center rounded-full border-4 border-green-500 text-lg font-bold text-green-500">
+              <dd class="flex h-14 w-14 items-center justify-center rounded-full border-4 border-green-600 text-lg font-bold text-green-700 dark:border-green-500 dark:text-green-400">
                 {score.value}
               </dd>
             </div>
@@ -217,7 +217,7 @@ const metadata = {
     id="ueber-mich"
     tagline="Über mich"
     title="Webdesign mit Tiefe"
-    subtitle="Ich bin Johannes Höfener, Webdesigner und Software-Ingenieur aus dem Fichtelgebirge. Ich nehme bewusst nur wenige Projekte gleichzeitig an — so bekommt jedes meine volle Aufmerksamkeit und die Sorgfalt, die ich aus der Softwareentwicklung kenne, egal wie groß oder klein."
+    subtitle="Ich bin Johannes Höfener, Webdesigner und Software-Ingenieur aus dem Fichtelgebirge. Ich nehme bewusst nur ausgewählte Projekte an — so bekommt jedes meine volle Aufmerksamkeit und die Sorgfalt, die es verdient."
     items={[
       {
         title: "Beruflich verwurzelt in DevOps",
@@ -271,7 +271,13 @@ const metadata = {
   let currentWordIndex = 1; // "Design" is shown first (matches initial HTML)
   let isDeleting = false;
   let charIndex = words[1].length;
+  let wordsTyped = 0;
   let typewriterTimer: number | null = null;
+
+  // Run through all words once, then settle on "Design" and stop (WCAG 2.2.2)
+  function stopTypewriter(): void {
+    document.querySelector(".typewriter-cursor")?.classList.add("hidden");
+  }
 
   function type(): void {
     const textEl = document.getElementById("typewriter-text");
@@ -296,6 +302,11 @@ const metadata = {
       textEl.textContent = word.substring(0, charIndex);
 
       if (charIndex === word.length) {
+        wordsTyped++;
+        if (wordsTyped === words.length) {
+          stopTypewriter();
+          return;
+        }
         typewriterTimer = window.setTimeout(() => {
           isDeleting = true;
           type();
@@ -319,6 +330,7 @@ const metadata = {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     currentWordIndex = 1;
+    wordsTyped = 0;
     isDeleting = false;
     charIndex = words[currentWordIndex].length;
     textEl.textContent = words[currentWordIndex];

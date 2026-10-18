@@ -8,11 +8,11 @@ tags: ["testing", "coding"]
 image: "/blog/blog_post_1_1768848683359.webp"
 ---
 
-# Aenean Commodo Ligula Eget Dolor
+## Aenean Commodo Ligula Eget Dolor
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
-## Key Takeaways
+### Key Takeaways
 
 Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
 

@@ -8,7 +8,7 @@ tags: ["coding", "astro"]
 image: "/blog/blog_post_3_1768848720552.webp"
 ---
 
-# Phasellus Viverra Nulla Ut Metus
+## Phasellus Viverra Nulla Ut Metus
 
 Varius laoreet. Quisque rutrum. _Aenean imperdiet_. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
 
@@ -20,7 +20,7 @@ function helloWorld() {
 
 Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
 
-## Technical Details
+### Technical Details
 
 1. Maecenas nec odio et ante tincidunt tempus.
 2. Donec vitae sapien ut libero venenatis faucibus.

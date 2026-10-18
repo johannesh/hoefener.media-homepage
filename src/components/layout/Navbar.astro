@@ -4,6 +4,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 ---
 
 <nav
+  aria-label="Hauptnavigation"
   class="fixed top-0 z-50 w-full border-b border-border bg-background md:bg-background/50 md:backdrop-blur"
 >
   <div
@@ -26,10 +27,14 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
             if ("links" in link && Array.isArray(link.links)) {
               return (
                 <div class="relative group">
-                  <button class="flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none cursor-pointer">
+                  <button
+                    type="button"
+                    class="flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary cursor-pointer"
+                  >
                     {link.text}
                     <svg
-                      class="h-4 w-4 transition-transform group-hover:rotate-180"
+                      class="h-4 w-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                      aria-hidden="true"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -42,7 +47,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
                       />
                     </svg>
                   </button>
-                  <div class="absolute left-0 mt-2 w-48 rounded-md border border-border bg-background shadow-lg opacity-0 invisible translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50">
+                  <div class="absolute left-0 mt-2 w-48 rounded-md border border-border bg-background shadow-lg opacity-0 invisible translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 z-50">
                     <div class="py-1">
                       {link.links.map((sublink) => (
                         <a
@@ -85,7 +90,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
       <button
         id="mobile-menu-button"
         type="button"
-        class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-white hover:bg-white/10 focus:outline-none transition-colors"
+        class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-foreground/10 transition-colors"
         aria-controls="mobile-menu"
         aria-expanded="false"
       >
@@ -143,7 +148,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
                   {link.links.map((sublink) => (
                     <a
                       href={sublink.href}
-                      class="block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-white/10 hover:text-primary"
+                      class="block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-foreground/10 hover:text-primary"
                     >
                       {sublink.text}
                     </a>
@@ -155,7 +160,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
           return (
             <a
               href={link.href}
-              class="block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-white/10 hover:text-primary"
+              class="block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-foreground/10 hover:text-primary"
             >
               {link.text}
             </a>

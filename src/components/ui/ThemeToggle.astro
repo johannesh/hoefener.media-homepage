@@ -3,11 +3,13 @@
 ---
 
 <button
-  class="theme-toggle-btn relative rounded-full p-2 text-foreground transition-colors hover:bg-foreground/10 focus:outline-none"
+  type="button"
+  class="theme-toggle-btn relative rounded-full p-2 text-foreground transition-colors hover:bg-foreground/10"
   aria-label="Farbschema wechseln"
 >
   <!-- Sun icon -->
   <svg
+    aria-hidden="true"
     class="sun-icon hidden h-5 w-5"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -29,6 +31,7 @@
   </svg>
   <!-- Moon icon -->
   <svg
+    aria-hidden="true"
     class="moon-icon hidden h-5 w-5"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -50,6 +53,12 @@
       const btns = document.querySelectorAll(".theme-toggle-btn");
 
       btns.forEach((btn) => {
+        btn.setAttribute(
+          "aria-label",
+          theme === "dark"
+            ? "Zu hellem Farbschema wechseln"
+            : "Zu dunklem Farbschema wechseln",
+        );
         const sunIcon = btn.querySelector(".sun-icon");
         const moonIcon = btn.querySelector(".moon-icon");
 

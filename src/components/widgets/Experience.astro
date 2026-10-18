@@ -65,7 +65,11 @@ const {
               <div class="z-10 order-2 absolute left-0 md:left-auto md:relative md:w-2/12 flex items-center justify-center -translate-x-[1.35rem] md:-translate-x-0 mt-1 md:mt-0">
                 <div class="w-12 h-12 bg-white dark:bg-slate-900 border-4 border-slate-100 dark:border-slate-800 rounded-full flex items-center justify-center shadow-md">
                   {icon ? (
-                    <Icon name={icon} class="w-5 h-5 text-primary" />
+                    <Icon
+                      aria-hidden="true"
+                      name={icon}
+                      class="w-5 h-5 text-primary"
+                    />
                   ) : (
                     <div class="w-4 h-4 bg-primary rounded-full" />
                   )}

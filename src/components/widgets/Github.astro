@@ -51,7 +51,11 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
       {
         icon && (
           <div class="p-4 bg-background/50 backdrop-blur-sm rounded-2xl mb-6 shadow-sm border border-border/50 group-hover:scale-110 transition-transform duration-300">
-            <Icon name={icon} class="w-12 h-12 text-primary" />
+            <Icon
+              aria-hidden="true"
+              name={icon}
+              class="w-12 h-12 text-primary"
+            />
           </div>
         )
       }
@@ -79,6 +83,7 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
               >
                 {action.icon && (
                   <Icon
+                    aria-hidden="true"
                     name={action.icon}
                     class="w-5 h-5 mr-2 -ml-1 transition-transform group-hover/btn:-translate-y-0.5"
                   />

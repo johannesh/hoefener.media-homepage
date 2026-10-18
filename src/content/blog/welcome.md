@@ -8,10 +8,10 @@ tags: ["welcome", "community", "astro"]
 image: "/blog/welcome.webp"
 ---
 
-# Welcome!
+## Welcome!
 
 We are excited to launch our new blog. Here we will share updates, tutorials, and more.
 
-## Why Astro?
+### Why Astro?
 
 Astro is fast, flexible, and perfect for content-driven websites like this blog.

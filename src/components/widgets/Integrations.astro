@@ -46,7 +46,11 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
         >
           {integration.icon && (
             <div class="w-16 h-16 flex items-center justify-center text-muted-foreground transition-all duration-300 group-hover:text-foreground group-hover:grayscale-0 grayscale opacity-60 group-hover:opacity-100 mb-3">
-              <Icon name={integration.icon} class="w-12 h-12" />
+              <Icon
+                aria-hidden="true"
+                name={integration.icon}
+                class="w-12 h-12"
+              />
             </div>
           )}
           <span class="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">

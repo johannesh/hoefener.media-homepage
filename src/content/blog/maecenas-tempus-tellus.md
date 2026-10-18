@@ -8,11 +8,11 @@ tags: ["coding", "news"]
 image: "/blog/blog_post_5_1768848750922.webp"
 ---
 
-# Maecenas Tempus Tellus Eget
+## Maecenas Tempus Tellus Eget
 
 Condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
 
-## Steps to Success
+### Steps to Success
 
 1.  **Maecenas nec odio** et ante tincidunt tempus.
 2.  **Donec vitae sapien** ut libero venenatis faucibus.

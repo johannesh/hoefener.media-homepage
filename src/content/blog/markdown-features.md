@@ -8,7 +8,7 @@ tags: ["markdown", "features", "astro"]
 image: "/blog/markdown.webp"
 ---
 
-# Markdown is Great
+## Markdown is Great
 
 You can write **bold** text, _italic_ text, and even lists:
 
@@ -16,7 +16,7 @@ You can write **bold** text, _italic_ text, and even lists:
 - Item 2
 - Item 3
 
-## Code Blocks
+### Code Blocks
 
 ```javascript
 console.log("Hello, world!");
