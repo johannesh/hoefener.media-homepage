@@ -1,3 +1,5 @@
+import type { ImageMetadata } from "astro";
+
 export interface CallToAction {
   text: string;
   href: string;
@@ -94,6 +96,16 @@ export interface IntegrationItem {
   url?: string;
 }
 
+export interface StepItem {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+export interface StepsProps extends HeadlineProps {
+  steps?: StepItem[];
+}
+
 export interface IntegrationsProps extends HeadlineProps {
   integrations?: IntegrationItem[];
 }
@@ -141,7 +153,12 @@ export interface CallToActionWidgetProps extends Widget {
 export interface ProjectItem {
   title: string;
   description: string;
-  image?: string;
+  /** Imported from src/assets (optimised by Astro) or a URL/path */
+  image?: ImageMetadata | string;
+  imageAlt?: string;
+  /** Shown instead of an image */
+  icon?: string;
+  /** External project URL, opens in a new tab */
   link?: string;
   tags?: string[];
 }

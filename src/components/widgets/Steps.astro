@@ -1,0 +1,64 @@
+---
+import WidgetWrapper from "./WidgetWrapper.astro";
+import type { StepsProps } from "@/types/types";
+import { Icon } from "astro-icon/components";
+import Card from "@/components/ui/Card.astro";
+import Headline from "@/components/ui/Headline.astro";
+
+const {
+  steps = [],
+  title,
+  subtitle,
+  tagline,
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render("bg"),
+} = Astro.props as StepsProps;
+
+const { container: containerClassProp = "", ...otherClasses } = classes;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={` ${containerClassProp}`}
+  bg={bg}
+  classes={otherClasses}
+>
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      container: "max-w-3xl mx-auto text-center",
+    }}
+  />
+  <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {
+      steps.map((step, index) => (
+        <li class="flex">
+          <Card class="relative w-full">
+            <div class="flex items-center justify-between mb-6">
+              <span
+                class="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary text-xl font-bold"
+                aria-hidden="true"
+              >
+                {index + 1}
+              </span>
+              {step.icon && (
+                <Icon name={step.icon} class="w-6 h-6 text-muted-foreground" />
+              )}
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-3">
+              <span class="sr-only">Schritt {index + 1}: </span>
+              {step.title}
+            </h3>
+            <p class="text-muted-foreground text-sm">{step.description}</p>
+          </Card>
+        </li>
+      ))
+    }
+  </ol>
+  <slot />
+</WidgetWrapper>

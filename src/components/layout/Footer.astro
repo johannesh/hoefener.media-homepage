@@ -1,34 +1,60 @@
 ---
 import { siteConfig } from "@/config/site";
+
+const linkClass = "text-muted-foreground transition-colors hover:text-primary";
 ---
 
 <footer class="mt-20 border-t border-border bg-card">
   <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
-      <div class="flex flex-col items-center gap-2 md:items-start">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-4">
+      <div class="flex flex-col gap-2 md:col-span-2">
         <span class="text-lg font-bold text-foreground">{siteConfig.name}</span>
-        <p class="text-sm text-muted-foreground">
+        <p class="max-w-sm text-sm text-muted-foreground">
           {siteConfig.description}
         </p>
       </div>
-      <div class="flex items-center gap-6">
-        {
-          siteConfig.legalLinks.map((link) => (
-            <a
-              href={link.href}
-              class="text-muted-foreground transition-colors hover:text-primary"
-            >
-              {link.text}
+
+      <div>
+        <h2 class="mb-3 text-sm font-semibold text-foreground">Kontakt</h2>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href={`mailto:${siteConfig.email}`} class={linkClass}>
+              {siteConfig.email}
             </a>
-          ))
-        }
-        <a
-          href={siteConfig.socialLinks.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-muted-foreground transition-colors hover:text-primary"
-          >GitHub</a
-        >
+          </li>
+          <li>
+            <a href={siteConfig.ctaLink.href} class={linkClass}>
+              Kontaktformular
+            </a>
+          </li>
+          <li class="text-muted-foreground">
+            {siteConfig.address.postalCode}
+            {siteConfig.address.city} · Fichtelgebirge
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-sm font-semibold text-foreground">Rechtliches</h2>
+        <ul class="space-y-2 text-sm">
+          {
+            siteConfig.legalLinks.map((link) => (
+              <li>
+                <a href={link.href} class={linkClass}>
+                  {link.text}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={siteConfig.socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={linkClass}>GitHub</a
+            >
+          </li>
+        </ul>
       </div>
     </div>
     <div

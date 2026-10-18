@@ -23,11 +23,12 @@ export const siteConfig = {
     github: "https://github.com/johannesh/hoefener.media-homepage",
   },
   navLinks: [
-    { text: "Start", href: "/" },
     { text: "Leistungen", href: "/#leistungen" },
     { text: "Portfolio", href: "/#portfolio" },
-    { text: "Kontakt", href: "/contact" },
+    { text: "Ablauf", href: "/#ablauf" },
+    { text: "Über mich", href: "/#ueber-mich" },
   ],
+  ctaLink: { text: "Projekt anfragen", href: "/contact" },
   legalLinks: [
     { text: "Impressum", href: "/impressum" },
     { text: "Datenschutz", href: "/datenschutz" },

@@ -72,12 +72,10 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 
     <div class="hidden md:flex items-center gap-4">
       <a
-        href={siteConfig.socialLinks.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-full bg-foreground/10 px-4 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground/20"
+        href={siteConfig.ctaLink.href}
+        class="rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition-all hover:bg-foreground/90"
       >
-        GitHub
+        {siteConfig.ctaLink.text}
       </a>
       <ThemeToggle />
     </div>
@@ -165,10 +163,9 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
         })
       }
       <a
-        href={siteConfig.socialLinks.github}
-        target="_blank"
-        class="block rounded-md px-3 py-2 text-base font-medium text-blue-400 transition-colors hover:cursor-pointer hover:bg-blue-500/10 hover:text-blue-300"
-        >GitHub</a
+        href={siteConfig.ctaLink.href}
+        class="mt-2 block rounded-md bg-foreground px-3 py-2 text-center text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+        >{siteConfig.ctaLink.text}</a
       >
     </div>
   </div>
@@ -196,6 +193,16 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
       menu?.classList.toggle("hidden");
       iconClosed?.classList.toggle("hidden");
       iconOpen?.classList.toggle("hidden");
+    });
+
+    // Close the menu after following a link (most links are same-page anchors)
+    menu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        finalButton?.setAttribute("aria-expanded", "false");
+        menu.classList.add("hidden");
+        iconClosed?.classList.remove("hidden");
+        iconOpen?.classList.add("hidden");
+      });
     });
   });
 </script>
