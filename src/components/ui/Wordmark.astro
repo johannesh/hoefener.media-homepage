@@ -1,0 +1,8 @@
+---
+import { siteConfig } from "@/config/site";
+
+// "hoefener.media" with the dot in the brand color, matching the logo wordmark
+const [first, ...rest] = siteConfig.name.split(".");
+---
+
+{first}<span class="text-brand">.</span>{rest.join(".")}

@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "@/config/site";
+import Wordmark from "@/components/ui/Wordmark.astro";
 
 const linkClass = "text-muted-foreground transition-colors hover:text-primary";
 ---
@@ -8,7 +9,7 @@ const linkClass = "text-muted-foreground transition-colors hover:text-primary";
   <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-10 md:grid-cols-4">
       <div class="flex flex-col gap-2 md:col-span-2">
-        <span class="text-lg font-bold text-foreground">{siteConfig.name}</span>
+        <span class="text-lg font-bold text-foreground"><Wordmark /></span>
         <p class="max-w-sm text-sm text-muted-foreground">
           {siteConfig.description}
         </p>

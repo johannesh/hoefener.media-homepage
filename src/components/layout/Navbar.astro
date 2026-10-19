@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "@/config/site";
 import ThemeToggle from "@/components/ui/ThemeToggle.astro";
+import Wordmark from "@/components/ui/Wordmark.astro";
 ---
 
 <nav
@@ -15,7 +16,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
         href="/"
         class="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-primary"
       >
-        {siteConfig.name}
+        <Wordmark />
       </a>
     </div>
 

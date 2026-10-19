@@ -11,6 +11,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
+  --color-brand: var(--brand);
 }
 
 :root {
@@ -21,6 +22,7 @@
   --muted: #f4f4f5;
   --muted-foreground: #52525b;
   --card: #ffffff;
+  --brand: #263f8c;
 }
 
 :root[data-theme="dark"] {
@@ -31,6 +33,7 @@
   --muted: #171717;
   --muted-foreground: #a1a1aa;
   --card: #0a0a0a;
+  --brand: #f2e1c2;
 }
 
 /* Base styles using variables */
